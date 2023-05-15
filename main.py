@@ -8,11 +8,8 @@ import pandas as pd
 import random
 import datetime
 from pulp import *
-#import gurobipy as gp
 import pymongo
 from pymongo import MongoClient
-from clcWebService import WebService
-import os
 from dotenv import load_dotenv
 from shapely.geometry import shape, Point
 from flask_cors import CORS
