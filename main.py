@@ -1,7 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, Blueprint, request, flash, redirect, url_for,jsonify,redirect, make_response
 
 
-from flask import Blueprint, render_template, request, flash, redirect, url_for, Flask,jsonify,redirect, make_response
+
 import json
 import numpy as np
 import pandas as pd
