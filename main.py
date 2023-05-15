@@ -17,12 +17,26 @@ from flask_cors import cross_origin
 
 
 
-
+load_dotenv()
 app = Flask(__name__)
+
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
+# database_mongo
+MONGO_URI = os.getenv('MONGO_URI')
+MONGO_DATABASE = os.getenv('MONGO_DATABASE')
+MONGO_COLLECTION = os.getenv('MONGO_COLLECTION')
+Puerto = os.getenv('PORT')
+client = pymongo.MongoClient(MONGO_URI)
+dataBase_ = client[MONGO_DATABASE]
+
+
+
 
 @app.route('/')
 def index():
   return render_template('index.html')
 
 if __name__ == '__main__':
-  app.run(port=5000)
+  app.run(port=PORT)
