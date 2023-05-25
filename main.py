@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 from shapely.geometry import shape, Point
 from flask_cors import CORS
 from flask_cors import cross_origin
-
+import bson
 
 
 load_dotenv()
@@ -27,9 +27,15 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 MONGO_URI = os.getenv('MONGO_URI')
 MONGO_DATABASE = os.getenv('MONGO_DATABASE')
 MONGO_COLLECTION = os.getenv('MONGO_COLLECTION')
+MONGO_DATABASE_USER = os.getenv('MONGO_DATABASE_USER')
+MONGO_COLLECTION_USER = os.getenv('MONGO_COLLECTION_USER')
 Puerto = os.getenv('PORT')
 client = pymongo.MongoClient(MONGO_URI)
 dataBase_ = client[MONGO_DATABASE]
+
+
+dataBase_User = client[MONGO_DATABASE_USER]
+collection_Users = dataBase_User[MONGO_COLLECTION_USER]
 
 @app.route("/calculator_map", methods = ['POST'])
 def map():
@@ -628,6 +634,9 @@ def microgrid():
         },
 
     ]
+
+    obj_id = bson.ObjectId("6463ae4e18a53e4c2dacca7b")
+    collection_Users.update_one({"_id": obj_id},{"$set":{"resultadosMr360": response}}, upsert=False)
 
     res = make_response(jsonify(response), 200)
     return res
