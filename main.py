@@ -135,7 +135,7 @@ def microgrid():
     Cinvc = 206173  # [$/kW]
 
     # energy_tariffs_(subsistence_consumption_$/kWh)_by_economic_level_and_energy_company:
-
+    print("ddddd")
     # CEO:
     if economic_level == 1 and energy_company == 1:
         Cgrid = 368.8
