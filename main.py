@@ -572,7 +572,7 @@ def microgrid():
     Pch_48 = []
     Pdch_48 = []
     E_48 = []
-    
+    print("jjjjjj")
     for i in range(start_ - 24, start_ + 24):
         Dem_48.append(Dem[i])
         Pv1kw_48.append(Pv1kw[i])
@@ -591,7 +591,7 @@ def microgrid():
 
     for i in index_48:
         hour_index.append(int(hourlyProfile[i]))
-    
+    print("tttttt")
     # show_results:
     response = [
         {
