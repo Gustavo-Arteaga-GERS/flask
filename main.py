@@ -641,7 +641,7 @@ def microgrid():
     
     
     obj_id = bson.ObjectId("6463ae4e18a53e4c2dacca7b")
-    collection_Users.update_one({"_id": obj_id},{"$set":{"resultadosMr360": response}}, upsert=False)
+    collection_Users.update_one({"_id": obj_id},{"$set":{"nombre": "sdfsdff"}}, upsert=False)
     res = make_response(jsonify(response), 200)
     return res
 
